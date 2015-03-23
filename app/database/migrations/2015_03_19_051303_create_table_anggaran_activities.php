@@ -18,7 +18,7 @@ class CreateTableAnggaranActivities extends Migration {
             $table->integer('anggaran_id')->unsigned();
             $table->string('code', 45);
             $table->text('description');
-            $table->integer('anggaran_keterkaitan_id')->nullable();
+            $table->string('anggaran_keterkaitan_code', 45)->nullable();
             $table->string('volume', 100)->nullable();
             $table->string('satuan', 100)->nullable();
             $table->string('nilai', 100)->nullable();
