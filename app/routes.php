@@ -15,14 +15,19 @@ Route::pattern('id', '[0-9]+');
 
 Route::get('/', function() {
 
-    return Redirect::to('api/dipa');
+    return Redirect::to('api/anggarans');
     // return XApi::response(array('error'=>400, 'message' => 'Not ready yet.'), 400);
 });
 
 Route::group(array('prefix' => 'api'), function() {
 
-    Route::group(array('prefix' => 'dipa'), function() {
-    	Route::get('/', function(){ return "/api/dipa"; });
+    Route::group(array('prefix' => 'anggarans'), function() {
+
+    	// List All
+        Route::get('/', array('uses' => 'AnggaranController@getAll'));
+
+        // Singular
+        Route::get('/{id?}', array('uses' => 'AnggaranController@getOne'));
     });
 });
 
