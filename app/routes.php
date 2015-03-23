@@ -11,7 +11,22 @@
 |
 */
 
+Route::pattern('id', '[0-9]+');
+
 Route::get('/', function() {
 
-    return View::make('hello');
+    return Redirect::to('api/dipa');
+    // return XApi::response(array('error'=>400, 'message' => 'Not ready yet.'), 400);
+});
+
+Route::group(array('prefix' => 'api'), function() {
+
+    Route::group(array('prefix' => 'dipa'), function() {
+    	Route::get('/', function(){ return "/api/dipa"; });
+    });
+});
+
+App::missing(function($exception) {
+
+    return XApi::response(array('error'=>400, 'message' => 'Route unknown. For documentation see: http://docs.dipa.apiary.io/'), 400);
 });
