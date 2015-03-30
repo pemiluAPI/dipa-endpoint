@@ -6,7 +6,7 @@
     RewriteEngine On
 
     # We're in sub directory
-    RewriteBase /dipa
+    RewriteBase /dipa_endpoint
 
     # Redirect Trailing Slashes...
     # RewriteRule ^(.*)/$ /$1 [L,R=301]
